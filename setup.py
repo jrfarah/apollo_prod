@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
-  name = 'apollo',
-  packages = ['apollo'], # this must be the same as the name above
+  name = 'apollo-ml',
+  packages = ['apollo-ml'], # this must be the same as the name above
   version = '0.1',
   description = 'sklearn wrapper',
   author = 'Joseph Farah',
