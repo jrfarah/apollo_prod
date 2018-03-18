@@ -10,17 +10,17 @@ You have a dataset. You want to train a network, ask it about something, and hav
 
 That's where Apollo comes in. Remember the miles of code? Gone. Here's an example of Apollo's usage:
 
-'''
-# test of the classification and data formatting module
 
-from apollo_ml import DataFormatterv1
-from apollo_ml import ClassificationNetv1
+	# test of the classification and data formatting module
 
-# put the table into a PANDAS dataset object
-dataset = DataFormatterv1.Format("../../training_sets/FormulaicDataset.csv")
+	from apollo_ml import DataFormatterv1
+	from apollo_ml import ClassificationNetv1
 
-print ClassificationNetv1.Predict(dataset, 3, [-45, 2, -7])
-'''
+	# put the table into a PANDAS dataset object
+	dataset = DataFormatterv1.Format("../../training_sets/FormulaicDataset.csv")
+
+	print ClassificationNetv1.Predict(dataset, 3, [-45, 2, -7])
+
 
 And that's it. These few lines read the dataset, train a network, and try your prediction. 
 
