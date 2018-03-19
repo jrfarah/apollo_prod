@@ -3,4 +3,5 @@ setup.cfg
 setup.py
 apollo_ml/ClassificationNetv1.py
 apollo_ml/DataFormatterv1.py
+apollo_ml/IterativeApproximation.py
 apollo_ml/__init__.py
