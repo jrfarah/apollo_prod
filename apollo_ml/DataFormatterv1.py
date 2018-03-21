@@ -44,12 +44,13 @@ def generateNames(n):
 	return names
 
 
-def Format(filepath):
+def Format(filepath, names=False):
 	''' coalesces all of the other functions into one thing, will return
 		the dataset object
 	'''
 	filepath = getAbsolutePath(filepath)
 	num_column = getNumberOfColumns(filepath)
-	names = generateNames(num_column)
+	if names == False:
+		names = generateNames(num_column)
 	print names, filepath
 	return pandas.read_csv(filepath, names=names)

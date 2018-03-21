@@ -40,7 +40,7 @@ from 	sklearn 						import svm
 
 # METHODS ########################################################################
 
-def getValidation(dset, prediction_column_index):
+def getValidation(dset, prediction_column_index, v_size):
 	'''	extract a validation dataset from the full one
 	'''
 	print type(dset)
@@ -56,7 +56,7 @@ def getValidation(dset, prediction_column_index):
 	# print contemplation_columns	# CC
 
 	# percentage of data to be used for validation
-	validation_size = 0.2
+	validation_size = v_size
 
 	# set random seed for initial matrices
 	seed = 7
@@ -94,9 +94,10 @@ def spotCheckAlgorithms(CC_train, CC_validation, PC_train, PC_validation, scorin
 		results.append(cv_results)
 		names.append(name)
 		msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
-		print(msg)
+		# print(msg)
 
 	(rate, best_model, name) = (max(success)[0], max(success)[1], max(success)[2])
+	print "{0} model is right {1} percent of the time.".format(name, rate*100)
 	return rate, best_model, name
 
 def spawnNeuralNet(rate, best_model, prediction_set, CC_train, PC_train):
@@ -117,12 +118,12 @@ def spawnNeuralNet(rate, best_model, prediction_set, CC_train, PC_train):
 	return predictions
 
 
-def Predict(dset, prediction_column_index, prediction_set):
+def Predict(dset, prediction_column_index, prediction_set, val_size=0.2):
 	'''	coalesces all of the other functions into one thing; 
 		will return prediction
 	'''
 	# split the datasets between validation and prediction
-	CC_train, CC_validation, PC_train, PC_validation = getValidation(dset, prediction_column_index)
+	CC_train, CC_validation, PC_train, PC_validation = getValidation(dset, prediction_column_index, val_size)
 
 	# spot check the various algorithms to determine the best model for use in this case
 	(rate, best_model, name) = spotCheckAlgorithms(CC_train, CC_validation, PC_train, PC_validation)
