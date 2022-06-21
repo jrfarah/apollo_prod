@@ -7,7 +7,7 @@ matplotlib == 2.2.0
 
 # apollo_ml/ClassificationNetv1.py: 24
 # apollo_ml/DataFormatterv1.py: 21
-numpy == 1.14.1
+numpy == 1.22.0
 
 # apollo_ml/ClassificationNetv1.py: 25,27
 # apollo_ml/DataFormatterv1.py: 22
